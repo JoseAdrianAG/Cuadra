@@ -21,7 +21,7 @@ export function errorHandler(
 
 function getStatus(err: unknown): number {
     if (typeof err === "object" && err !== null && "status" in err) {
-        const status = (err as { status: unknown }).status;
+        const status = err.status;
         if (typeof status === "number" && status >= 400 && status <600) return status;
     }
     return 500;
